@@ -1,0 +1,19 @@
+{
+  "name": "epam_javasript_application",
+  "version": "1.0.0",
+  "description": "Testing app on javascrip",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start -server --files '*.html, less/*.less, js/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qweeex/epam_javasript_application.git"
+  },
+  "author": "Arkady Pugachev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qweeex/epam_javasript_application/issues"
+  },
+  "homepage": "https://github.com/qweeex/epam_javasript_application#readme"
+}
