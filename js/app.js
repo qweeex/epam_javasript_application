@@ -19,9 +19,9 @@ $(document).ready(() => {
     ];
 
     function GetListItem(){
-        let html;
+        let table;
         $(store).each(function (key, item) {
-            html += `
+            table += `
             <tr id="${key}">
                 <td>
                     <div class="product-info w-100 d-flex justify-content-between">
@@ -36,10 +36,10 @@ $(document).ready(() => {
                 <td>$ ${item.price}</td>
                 <td>
                     <div class="product-action">
-                        <button class="btn-warning btn" data-item="${key}">
+                        <button class="btn-warning btn btn-edit"  data-item="${key}">
                             Edit
                         </button>
-                        <button class="btn btn-danger" data-item="${key}">
+                        <button class="btn btn-danger btn-delete" data-item="${key}">
                             Delete
                         </button>
                     </div>
@@ -47,7 +47,7 @@ $(document).ready(() => {
             </tr>
         `
         });
-        $('.table-info tbody').html(html);
+        $('.table-info tbody').html(table);
     }
 
     GetListItem();
@@ -63,9 +63,44 @@ $(document).ready(() => {
         GetListItem();
     }
 
-    $('.add-submit').on('click', (e) => {
-        e.preventDefault();
-        AddItems();
-    })
+    function DeleteItem(el){
+        delete store[el];
+        GetListItem();
+    }
+
+    function EditItem(el, title, count, price){
+        store[el]['title'] = title;
+        store[el]['count'] = count;
+        store[el]['price'] = price;
+        console.log(store);
+    }
+
+    $('.btn-delete').on('click', (e) => {
+       let id = parseInt(e.target.dataset.item);
+       DeleteItem(id);
+       GetListItem();
+    });
+
+    $('.btn-update').on('click', (e) => {
+        let elem = parseInt(e.target.dataset.type);
+        EditItem(elem, $('.add-name').val(), $('.add-count').val(), $('.add-price').val());
+        GetListItem();
+        $('.add-name').val('');
+        $('.add-count').val('');
+        $('.add-price').val('');
+        $('#exampleModalCenter').modal('hide');
+    });
+
+
+    $('.btn-edit').on('click', (e) => {
+       let id = parseInt(e.target.dataset.item);
+       $('.add-name').val(store[id]['title']);
+       $('.add-count').val(store[id]['count']);
+       $('.add-price').val(store[id]['price']);
+       $('#exampleModalCenter').modal('show');
+    });
+
+
+
 
 });

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d21f14c4-7414-4856-bd16-618d1fb98e41" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +39,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Less" />
@@ -88,7 +92,7 @@
       <updated>1578937691258</updated>
       <workItem from="1578937694339" duration="6849000" />
       <workItem from="1579101803075" duration="1505000" />
-      <workItem from="1579107362012" duration="665000" />
+      <workItem from="1579107362012" duration="9749000" />
     </task>
     <servers />
   </component>
@@ -104,9 +108,13 @@
       <screen x="1920" y="0" width="1280" height="984" />
     </state>
     <state x="2268" y="321" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@1920.0.1280.984" timestamp="1579015838472" />
-    <state x="921" y="244" key="run.anything.popup" timestamp="1578942559538">
+    <state x="921" y="244" key="run.anything.popup" timestamp="1579114671789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="921" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578942559538" />
+    <state x="921" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579114671789" />
+    <state x="1144" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1579109136706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1144" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579109136706" />
   </component>
 </project>
