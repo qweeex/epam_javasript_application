@@ -3,17 +3,17 @@ document.addEventListener('DOMContentLoaded', () =>{
     ///  Store
     let store = [
         {
-            "title": "Товар 1",
+            "title": "Вишня",
             "count": "5",
             "price": "1.200.200.00"
         },
         {
-            "title": "Товар 2",
+            "title": "Кокос",
             "count": "4",
             "price": "1.404.200.00"
         },
         {
-            "title": "Товар 3",
+            "title": "Арбус",
             "count": "6",
             "price": "1.800.450.00"
         }
@@ -57,10 +57,20 @@ document.addEventListener('DOMContentLoaded', () =>{
         GetBtnEdit();
         GetBtnDelete();
         AddNew();
+        SortName();
         console.log(store);
     }
 
     Init();
+
+
+    function SortName() {
+        $('.sort-name').on('click', (e) => {
+            e.preventDefault();
+            store.sort(( a, b ) => a.title > b.title);
+            Init();
+        })
+    }
 
     function GetBtnEdit(){
         // BtnEdit
@@ -83,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         for (let i = 0; i < BtnDelete.length; i++){
             BtnDelete[i].addEventListener('click', (e) => {
                 let id = parseInt(e.target.dataset.edit);
-                delete store[id];
+                store.splice(id, id);
                 Init();
             });
         }
