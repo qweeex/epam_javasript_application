@@ -58,11 +58,38 @@ document.addEventListener('DOMContentLoaded', () =>{
         GetBtnDelete();
         AddNew();
         Search();
+        Sort();
         console.log(store);
     }
 
     Init(store);
 
+    function Sort() {
+        document.querySelector('.sort-name').addEventListener('click', (e) =>{
+           e.preventDefault();
+           let type = 1;
+           let sort;
+           if (type === 1){
+               Init(store);
+               sort = store.sort(function (a, b) {
+                   if (a.title > b.title) {
+                       return 1;
+                   }
+                   if (a.title < b.title) {
+                       return -1;
+                   }
+                   return 0;
+               });
+               type = 0;
+               Init(sort);
+           }
+           if (type === 0){
+               let rev = sort.reverse();
+               Init(rev);
+               type = 1;
+           }
+        });
+    }
     
     function Search() {
         let searchBtn = document.querySelector('.btn-search');
@@ -125,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                     price: price
                 }
             );
-            Init();
+            Init(store);
             $('#exampleModalCenter').modal('hide');
             ClearInput();
         });
