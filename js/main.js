@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     ];
 
     // Get Items table
-    function GetList() {
+    function GetList(arr) {
         let table;
-        store.forEach(function(item, i, arr) {
+        arr.forEach(function(item, i, arr) {
             table += `
             <tr id="row-${i}">
                 <td>
@@ -52,26 +52,31 @@ document.addEventListener('DOMContentLoaded', () =>{
         $('.table-info > tbody').html(table);
     }
 
-    function Init() {
-        GetList();
+    function Init(arr) {
+        GetList(arr);
         GetBtnEdit();
         GetBtnDelete();
         AddNew();
-        SortName();
+        Search();
         console.log(store);
     }
 
-    Init();
+    Init(store);
 
-
-    function SortName() {
-        $('.sort-name').on('click', (e) => {
-            e.preventDefault();
-            store.sort(( a, b ) => a.title > b.title);
-            Init();
-        })
+    
+    function Search() {
+        let searchBtn = document.querySelector('.btn-search');
+        searchBtn.addEventListener('click', () => {
+            let search = document.querySelector('.input-search').value;
+            let arr = store.filter(event => {
+                if (event.title.includes(search)) {
+                    return this;
+                }
+            });
+            Init(arr);
+        });
     }
-
+    
     function GetBtnEdit(){
         // BtnEdit
         let BtnEdit = document.querySelectorAll('.btn-edit');
@@ -94,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             BtnDelete[i].addEventListener('click', (e) => {
                 let id = parseInt(e.target.dataset.edit);
                 store.splice(id, id);
-                Init();
+                Init(store);
             });
         }
 
@@ -141,9 +146,9 @@ document.addEventListener('DOMContentLoaded', () =>{
         store[key]['title'] = title;
         store[key]['count'] = count;
         store[key]['price'] = price;
-        Init();
+        Init(store);
         $('#exampleModalCenter').modal('hide');
-    })
+    });
 
 
 });
