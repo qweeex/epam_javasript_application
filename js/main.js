@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         GetList();
         GetBtnEdit();
         GetBtnDelete();
+        AddNew();
+        console.log(store);
     }
 
     Init();
@@ -84,6 +86,39 @@ document.addEventListener('DOMContentLoaded', () =>{
                 delete store[id];
                 Init();
             });
+        }
+
+    }
+
+    function AddNew(){
+        document.querySelector('.btn-new').addEventListener('click', (e) => {
+
+            // Очищаем поля
+            ClearInput();
+
+        });
+
+        document.querySelector('.btn-save').addEventListener('click', () => {
+            let title = document.querySelector('.add-name').value;
+            let count = document.querySelector('.add-count').value;
+            let price = document.querySelector('.add-price').value;
+
+            store.push(
+                {
+                    title: title,
+                    count: count,
+                    price: price
+                }
+            );
+            Init();
+            $('#exampleModalCenter').modal('hide');
+            ClearInput();
+        });
+
+        function ClearInput() {
+            document.querySelector('.add-name').value = '';
+            document.querySelector('.add-count').value = '';
+            document.querySelector('.add-price').value = '';
         }
     }
 
