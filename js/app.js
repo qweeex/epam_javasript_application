@@ -53,11 +53,13 @@ $(document).ready(() => {
     GetListItem();
 
     function AddItems() {
-        let name = $('.add-name').val(),
-            size = $('.add-count').val(),
-            num = $('.add-price').val();
-
-        $(store).push({title: name, count: size, price: num});
+        store.push(
+            {
+                title: $('.add-name').val(),
+                count: $('.add-count').val(),
+                price: $('.add-price').val()
+            }
+        );
         GetListItem();
     }
 
